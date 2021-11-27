@@ -4,7 +4,7 @@ class LinkedList:
 
     @property
     def head(self):
-        return self._node
+        return self._head
     
     @head.setter
     def head(self, head):
@@ -28,7 +28,7 @@ class LinkedList:
             return
         for current_node in self:
             pass
-        current_node.next(node)
+        current_node.set_next(node)
 
     def remove_from_head(self):
         if self.head == None:
@@ -55,8 +55,7 @@ class Node:
     def next(self):
         return self._next
 
-    @next.setter
-    def next(self, next):
+    def set_next(self, next):
         self._next = next
 
     def __repr__(self):
