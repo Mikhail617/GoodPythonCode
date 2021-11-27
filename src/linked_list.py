@@ -1,14 +1,14 @@
 class LinkedList:
     def __init__(self):
-        self.head = None
+        self._head = None
 
     @property
-    def node(self):
+    def head(self):
         return self._node
     
-    @node.setter
-    def node(self, node):
-        self._node = node
+    @head.setter
+    def head(self, head):
+        self._head = head
 
     def __iter__(self):
         node = self.head
@@ -28,7 +28,7 @@ class LinkedList:
             return
         for current_node in self:
             pass
-        current_node.set_next(node)
+        current_node.next(node)
 
     def remove_from_head(self):
         if self.head == None:
@@ -40,8 +40,8 @@ class LinkedList:
 
 class Node:
     def __init__(self, val):
-        self.val = val
-        self.next = None
+        self._val = val
+        self._next = None
 
     @property
     def val(self):
@@ -57,10 +57,7 @@ class Node:
 
     @next.setter
     def next(self, next):
-        self._next = next    
-
-    def set_next(self, node):
-        self.next = node
+        self._next = next
 
     def __repr__(self):
-        return self.val
+        return self._val
