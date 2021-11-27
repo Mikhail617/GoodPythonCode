@@ -37,6 +37,12 @@ class LinkedList:
         self.head = self.head.next
         return temp
 
+    def size(self):
+        count = 0
+        for node in self:
+            count = count + 1
+        return count
+
 
 class Node:
     def __init__(self, val):
