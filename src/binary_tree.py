@@ -28,7 +28,7 @@ class Node:
    def data(self, data):
         self._data = data
 
-# Insert Node
+   # Insert Node
    def insert(self, data):
       if self._data:
          if data < self._data:
@@ -44,7 +44,7 @@ class Node:
       else:
          self._data = data
 
-# Print the Tree
+   # Print the Tree
    def PrintTree(self):
       if self._left:
          self._left.PrintTree()
@@ -52,8 +52,8 @@ class Node:
       if self._right:
          self._right.PrintTree()
 
-# Inorder traversal
-# Left -> Root -> Right
+   # Inorder traversal
+   # Left -> Root -> Right
    def inorderTraversal(self, root):
       res = []
       if root:
@@ -62,12 +62,22 @@ class Node:
          res = res + self.inorderTraversal(root.right)
       return res
 
-# Preorder traversal
-# Root -> Left ->Right
-   def PreorderTraversal(self, root):
+   # Preorder traversal
+   # Root -> Left ->Right
+   def preorderTraversal(self, root):
       res = []
       if root:
          res.append(root.data)
-         res = res + self.PreorderTraversal(root.left)
-         res = res + self.PreorderTraversal(root.right)
+         res = res + self.preorderTraversal(root.left)
+         res = res + self.preorderTraversal(root.right)
+      return res
+
+   # Postorder traversal
+   # Left ->Right -> Root
+   def postorderTraversal(self, root):
+      res = []
+      if root:
+         res = self.postorderTraversal(root.left)
+         res = res + self.postorderTraversal(root.right)
+         res.append(root.data)
       return res
