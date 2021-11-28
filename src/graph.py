@@ -42,13 +42,3 @@ class Graph(dict):
                     if not shortest or len(newpath) < len(shortest):
                         shortest = newpath
         return shortest
-
-
-graph = Graph({'A': ['B', 'C'],
-         'B': ['C', 'D'],
-         'C': ['D'],
-         'D': ['C'],
-         'E': ['F'],
-         'F': ['C']})
-
-print(graph.find_path('A', 'D'))
